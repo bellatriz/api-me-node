@@ -5,9 +5,6 @@ import articlesRouter from './routers/articles-router'
 // Porta do servidor
 const PORT = process.env.PORT || 4000
 
-// Host do servidor
-const HOSTNAME = process.env.HOSTNAME || 'http://localhost'
-
 const app = express()
 
 // Endpoint raiz
@@ -19,15 +16,10 @@ app.use(cors({
   origin: ['http://localhost:3000']
 }))
 
-// Resposta padrão para quaisquer outras requisições:
-app.use((req, res) => {
-  res.status(404)
-})
-
 // Rotas
 app.use('/api', articlesRouter)
 
 // Inicia o sevidor
 app.listen(PORT, () => {
-  console.log(`Servidor rodando com sucesso ${HOSTNAME}:${PORT}`)
+  console.log(`Servidor rodando com sucesso 🚪: ${PORT}`)
 })
